@@ -1,84 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> CV Anziz DAHALANI</title>
-    <link rel="stylesheet" href="./assets/stylecv.css" />
+    <title>CV — Anziz Dahalani</title>
+    <meta name="description" content="Les différentes versions du CV d’Anziz Dahalani : générale, développeur et créative." />
+    <meta name="author" content="Anziz Dahalani" />
+    <link rel="stylesheet" href="./assets/styles/hub.css" />
 </head>
 
 <body>
+    <header class="hub-header">
+        <p class="eyebrow">Marseille · Développement web</p>
+        <h1>Anziz Dahalani</h1>
+        <p class="subtitle">Choisissez la version de mon CV adaptée à ce que vous recherchez.</p>
+    </header>
 
-    <div class="cv-card">
-        <h1> CV Anziz DAHALANI</h1>
-        <img src="./assets/IMG_7718.jpeg" class="photo">
+    <main>
+        <ul class="cv-list">
+            <li class="cv-card">
+                <p class="cv-index">01</p>
+                <h2 id="cv-general">CV Général</h2>
+                <p class="cv-desc">Une version simple et lisible pensée pour les candidatures classiques et les
+                    logiciels ATS.</p>
+                <ul class="cv-tags">
+                    <li>Une page A4</li>
+                    <li>Imprimable</li>
+                    <li>ATS</li>
+                </ul>
+                <p class="cv-actions">
+                    <a class="btn btn--primary" href="./cv-general/" aria-describedby="cv-general">
+                        Voir le CV <span class="arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a class="btn btn--secondary" href="./pdf/CV-Anziz-Dahalani-General.pdf" download
+                        aria-label="Télécharger le CV général en PDF">
+                        <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                            <path d="M8 1.5v8m0 0L4.75 6.25M8 9.5l3.25-3.25M2.5 11.5v3h11v-3"
+                                fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Télécharger en PDF
+                    </a>
+                </p>
+            </li>
 
-        <h3>Expérience</h3>
-        <ul>
-            <li>Stage en comptabilité chez FLEXIMAT (2 mois )</li>
-            <li>Stage au cabinet d'avocats GUEYDON (4 mois)</li>
-            <li>Stage au club de foot ESPERENCE de Rennes (6 semaines) </li>
-            <li>Stage en boulangerie FOURNIL DE CAMILLE (3 semaines)</li>
+            <li class="cv-card">
+                <p class="cv-index">02</p>
+                <h2 id="cv-dev">CV Développeur</h2>
+                <p class="cv-desc">Une version orientée développement web mettant davantage en avant mes technologies,
+                    projets et expériences numériques.</p>
+                <ul class="cv-tags">
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <li>MySQL</li>
+                </ul>
+                <p class="cv-actions">
+                    <a class="btn btn--primary" href="./cv-dev/" aria-describedby="cv-dev">
+                        Voir le CV <span class="arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a class="btn btn--secondary" href="./pdf/CV-Anziz-Dahalani-Developpeur.pdf" download
+                        aria-label="Télécharger le CV développeur en PDF">
+                        <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                            <path d="M8 1.5v8m0 0L4.75 6.25M8 9.5l3.25-3.25M2.5 11.5v3h11v-3"
+                                fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Télécharger en PDF
+                    </a>
+                </p>
+            </li>
+
+            <li class="cv-card">
+                <p class="cv-index">03</p>
+                <h2 id="cv-persona">CV Créatif</h2>
+                <p class="cv-desc">Une version créative qui reprend mon parcours avec une direction artistique plus
+                    personnelle.</p>
+                <ul class="cv-tags">
+                    <li>Intégration</li>
+                    <li>Animations CSS</li>
+                    <li>Portfolio</li>
+                </ul>
+                <p class="cv-actions">
+                    <a class="btn btn--primary" href="./cv-persona/" aria-describedby="cv-persona">
+                        Voir le CV <span class="arrow" aria-hidden="true">→</span>
+                    </a>
+                    <a class="btn btn--secondary" href="./pdf/CV-Anziz-Dahalani-Creatif.pdf" download
+                        aria-label="Télécharger le CV créatif en PDF">
+                        <svg class="icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                            <path d="M8 1.5v8m0 0L4.75 6.25M8 9.5l3.25-3.25M2.5 11.5v3h11v-3"
+                                fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Télécharger en PDF
+                    </a>
+                </p>
+            </li>
         </ul>
+    </main>
 
-        <h3>Compétences</h3>
-        <ul>
-            <li>Connaissance de la suite Office</li>
-            <li>Connaissance juridique </li>
-            <li>Connaissance de la gestion de projet</li>
-            <li>Connaissance de la gestion administrative</li>
-            <li>Connaissance de la comptabilité</li>
-        </ul>
-
-        <h3>Formations</h3>
-        <ul>
-            <li>2023-2024 : Licence 2 Droit Rennes 1</li>
-            <li>2022-2023 : Licence 1 Droit Rennes 1</li>
-            <li>2021-2022 : Bac pro AGORA Candidat libre </li>
-            <li>2020-2021 : Lycée Gestion Administration</li>
-        </ul>
-
-        <h3>Coordonnées</h3>
-        <ul>
-            <li>Num : 07.66.66.64.29</li>
-            <li>Mail : anzizdahalani@laplateforme.io</li>
-            <li>Marseille</li>
-        </ul>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Langues parlées </th>
-                    <th>Niveau</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>Français</th>
-                    <td>Langue maternelle</td>
-                </tr>
-                <tr>
-                    <th>Anglais</th>
-                    <td>Courant</td>
-                </tr>
-                <tr>
-                    <th>Italien</th>
-                    <td>Niveau Scolaire</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div style="text-align:center; margin: 18px 0;">
-            <a href="https://youtu.be/ZD3ZaytFKiU?feature=shared" class="btn">La Vidéo</a>
-        </div>
-
-        <section id="liens">
-            <h2>Mes autres projets</h2>
-            <ul>
-                <li><a href="https://github.com/AnzizDL" class="btn">Mon GitHub</a></li>
-            </ul>
-        </section>
-    </div>
+    <footer class="hub-footer">
+        <p>Même parcours, trois lectures différentes.</p>
+        <p>
+            <a href="mailto:anzizdahalani@gmail.com">anzizdahalani@gmail.com</a> ·
+            <a href="https://github.com/AnzizDL" rel="noopener">github.com/AnzizDL</a>
+        </p>
+    </footer>
+</body>
 
 </html>
