@@ -1,0 +1,309 @@
+:root {
+  color-scheme: light;
+  --text: #1b1f24;
+  --muted: #59636e;
+  --accent: #0e7c66;
+  --accent-soft: #e6f4f0;
+  --rule: #d8dee4;
+  --mono: "JetBrains Mono", Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #e8ebee;
+  font-family: Inter, Arial, system-ui, sans-serif;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Barre d'outils */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: min(100% - 2rem, 210mm);
+  margin: 1rem auto 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+
+.toolbar a {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.toolbar a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Page A4 */
+.cv {
+  width: min(100% - 2rem, 210mm);
+  min-height: 297mm;
+  margin: 1rem auto 2rem;
+  padding: 16mm 18mm;
+  background: #fff;
+  box-shadow: 0 16px 40px rgb(27 31 36 / 0.1);
+}
+
+.identity {
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--text);
+}
+
+h1 {
+  margin-bottom: 0.3rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.job-title {
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.prompt {
+  margin-right: 0.3rem;
+  color: var(--muted);
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 0.2rem;
+  vertical-align: -0.15em;
+  background: var(--accent);
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-style: normal;
+}
+
+/* Sections */
+section {
+  margin-top: 1.15rem;
+  break-inside: avoid;
+}
+
+h2 {
+  margin-bottom: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+h2::before {
+  content: "// ";
+  color: var(--accent);
+}
+
+section > p {
+  margin-bottom: 0;
+  font-size: 0.88rem;
+}
+
+.link {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Compétences */
+.stack {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+}
+
+.stack > div {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+dt {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+dd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+dd span {
+  padding: 0.08rem 0.5rem;
+  border-radius: 4px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+/* Formation */
+.entry {
+  margin-bottom: 0.55rem;
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+h3 {
+  margin-bottom: 0.05rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.entry .org {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.duration {
+  flex: 0 0 auto;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+/* Autres expériences */
+.compact-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+}
+
+.compact-list li {
+  margin-bottom: 0.2rem;
+}
+
+.compact-list li::marker {
+  color: var(--accent);
+}
+
+.compact-list .duration {
+  margin-left: 0.4rem;
+}
+
+/* Mobile */
+@media screen and (max-width: 700px) {
+  html {
+    background: #fff;
+  }
+
+  .cv {
+    width: 100%;
+    min-height: 0;
+    margin: 0;
+    padding: 1.5rem 1rem;
+    box-shadow: none;
+  }
+
+  h1 {
+    font-size: 2.1rem;
+  }
+
+  .entry-heading {
+    display: block;
+  }
+
+  .stack > div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+  }
+}
+
+/* Impression */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    background: #fff;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print,
+  .cursor {
+    display: none !important;
+  }
+
+  .cv {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    box-shadow: none;
+  }
+}

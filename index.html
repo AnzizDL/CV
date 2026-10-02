@@ -1,84 +1,114 @@
-<!DOCTYPE html>
-<html>
-
-<head>
+<!doctype html>
+<html lang="fr">
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> CV Anziz DAHALANI</title>
-    <link rel="stylesheet" href="./assets/stylecv.css" />
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Hub CV d'Anziz Dahalani : versions ATS, dev, classique et Persona 5." />
+    <title>Anziz Dahalani — Hub CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/hub.css" />
+  </head>
 
-<body>
+  <body>
+    <header class="hub-header">
+      <p class="eyebrow">Curriculum vitae</p>
+      <h1>Anziz Dahalani</h1>
+      <p class="tagline">Employé polyvalent — administratif et numérique · Marseille</p>
+      <p class="intro">Quatre versions du même CV. Choisissez celle qui convient.</p>
+    </header>
 
-    <div class="cv-card">
-        <h1> CV Anziz DAHALANI</h1>
-        <img src="./assets/IMG_7718.jpeg" class="photo">
-
-        <h3>Expérience</h3>
-        <ul>
-            <li>Stage en comptabilité chez FLEXIMAT (2 mois )</li>
-            <li>Stage au cabinet d'avocats GUEYDON (4 mois)</li>
-            <li>Stage au club de foot ESPERENCE de Rennes (6 semaines) </li>
-            <li>Stage en boulangerie FOURNIL DE CAMILLE (3 semaines)</li>
-        </ul>
-
-        <h3>Compétences</h3>
-        <ul>
-            <li>Connaissance de la suite Office</li>
-            <li>Connaissance juridique </li>
-            <li>Connaissance de la gestion de projet</li>
-            <li>Connaissance de la gestion administrative</li>
-            <li>Connaissance de la comptabilité</li>
-        </ul>
-
-        <h3>Formations</h3>
-        <ul>
-            <li>2023-2024 : Licence 2 Droit Rennes 1</li>
-            <li>2022-2023 : Licence 1 Droit Rennes 1</li>
-            <li>2021-2022 : Bac pro AGORA Candidat libre </li>
-            <li>2020-2021 : Lycée Gestion Administration</li>
-        </ul>
-
-        <h3>Coordonnées</h3>
-        <ul>
-            <li>Num : 07.66.66.64.29</li>
-            <li>Mail : anzizdahalani@laplateforme.io</li>
-            <li>Marseille</li>
-        </ul>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Langues parlées </th>
-                    <th>Niveau</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>Français</th>
-                    <td>Langue maternelle</td>
-                </tr>
-                <tr>
-                    <th>Anglais</th>
-                    <td>Courant</td>
-                </tr>
-                <tr>
-                    <th>Italien</th>
-                    <td>Niveau Scolaire</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div style="text-align:center; margin: 18px 0;">
-            <a href="https://youtu.be/ZD3ZaytFKiU?feature=shared" class="btn">La Vidéo</a>
+    <main class="cards">
+      <article class="card card--ats">
+        <div class="preview" aria-hidden="true">
+          <span class="line line--title"></span>
+          <span class="line line--sub"></span>
+          <span class="rule"></span>
+          <span class="line"></span>
+          <span class="line line--short"></span>
+          <span class="line"></span>
+          <span class="rule"></span>
+          <span class="line line--short"></span>
+          <span class="line"></span>
         </div>
+        <div class="card-body">
+          <p class="card-tag">01 · Recrutement</p>
+          <h2><a class="card-link" href="./cv-ats.html">Version ATS</a></h2>
+          <p>Mise en page simple, une colonne et texte brut, lisible par les logiciels de tri de candidatures. À envoyer en PDF pour postuler.</p>
+          <div class="card-actions">
+            <span class="card-cta">Ouvrir →</span>
+            <a class="card-pdf" href="./pdf/cv-ats.pdf" download="Anziz-Dahalani-CV.pdf">PDF ↓</a>
+          </div>
+        </div>
+      </article>
 
-        <section id="liens">
-            <h2>Mes autres projets</h2>
-            <ul>
-                <li><a href="https://github.com/AnzizDL" class="btn">Mon GitHub</a></li>
-            </ul>
-        </section>
-    </div>
+      <article class="card card--dev">
+        <div class="preview" aria-hidden="true">
+          <span class="code"><i class="c-comment">// développeur web</i></span>
+          <span class="code"><i class="c-key">const</i> stack = [</span>
+          <span class="code code--indent"><i class="c-str">"React"</i>, <i class="c-str">"Node.js"</i>,</span>
+          <span class="code code--indent"><i class="c-str">"MySQL"</i>, <i class="c-str">"Git"</i></span>
+          <span class="code">];<i class="c-cursor"></i></span>
+        </div>
+        <div class="card-body">
+          <p class="card-tag">02 · Développement</p>
+          <h2><a class="card-link" href="./cv-dev.html">Version dev</a></h2>
+          <p>Centrée sur la formation et les compétences techniques, compatible ATS. Pour les offres de développeur web junior.</p>
+          <div class="card-actions">
+            <span class="card-cta">Ouvrir →</span>
+            <a class="card-pdf" href="./pdf/cv-dev.pdf" download="Anziz-Dahalani-CV-Dev.pdf">PDF ↓</a>
+          </div>
+        </div>
+      </article>
 
+      <article class="card card--classique">
+        <div class="preview" aria-hidden="true">
+          <span class="side"></span>
+          <span class="main">
+            <span class="line line--title"></span>
+            <span class="line"></span>
+            <span class="line line--short"></span>
+            <span class="dot-line"></span>
+            <span class="dot-line"></span>
+            <span class="dot-line"></span>
+          </span>
+        </div>
+        <div class="card-body">
+          <p class="card-tag">03 · Présentation</p>
+          <h2><a class="card-link" href="./cv-classique.html">Version classique</a></h2>
+          <p>Deux colonnes, typographie soignée et frise chronologique. Pour un entretien, un salon ou un envoi direct.</p>
+          <div class="card-actions">
+            <span class="card-cta">Ouvrir →</span>
+            <a class="card-pdf" href="./pdf/cv-classique.pdf" download="Anziz-Dahalani-CV-Classique.pdf">PDF ↓</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card--p5">
+        <div class="preview" aria-hidden="true">
+          <span class="p5-star">★</span>
+          <span class="p5-title"><b>A</b><b>N</b><b>Z</b><b>I</b><b>Z</b></span>
+          <span class="p5-slash"></span>
+        </div>
+        <div class="card-body">
+          <p class="card-tag">04 · Take your heart</p>
+          <h2><a class="card-link" href="./cv-persona5.html">Version Persona 5</a></h2>
+          <p>Rouge, noir, découpages et lettres façon calling card. La version créative, pour se démarquer.</p>
+          <div class="card-actions">
+            <span class="card-cta">Ouvrir →</span>
+            <a class="card-pdf" href="./pdf/cv-persona5.pdf" download="Anziz-Dahalani-CV-Persona5.pdf">PDF ↓</a>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="hub-footer">
+      <a href="mailto:anzizdahalani@laplateforme.io">anzizdahalani@laplateforme.io</a>
+      <span aria-hidden="true">·</span>
+      <a href="tel:+33766666429">07.66.66.64.29</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://github.com/AnzizDL">github.com/AnzizDL</a>
+    </footer>
+  </body>
 </html>
