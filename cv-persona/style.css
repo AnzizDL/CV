@@ -1,0 +1,1085 @@
+/* =========================================================
+   CV créatif — Anziz Dahalani
+   Direction artistique originale : noir / blanc / rouge,
+   formes angulaires, diagonales, trames.
+   ========================================================= */
+
+:root {
+  --black: #0b0b0c;
+  --black-soft: #161618;
+  --paper: #f2efe9;
+  --white: #ffffff;
+  --red: #d81f26;
+  --red-deep: #8e0f16;
+  /* Rouge eclairci : contraste suffisant sur les fonds sombres. */
+  --red-bright: #ef4a52;
+  --grey: #8d8d92;
+
+  --display: "Arial Black", "Helvetica Neue", Impact, Haettenschweiler, sans-serif;
+  --body: "Segoe UI", "Helvetica Neue", Roboto, Arial, sans-serif;
+
+  /* Trame de points et rayures diagonales, générées en CSS. */
+  --halftone: radial-gradient(circle at center, currentColor 1.2px, transparent 1.3px);
+  --stripes: repeating-linear-gradient(135deg,
+      transparent 0 8px,
+      rgba(0, 0, 0, 0.14) 8px 16px);
+
+  /* Découpes angulaires réutilisées. */
+  --cut-title: polygon(0 0, 100% 0, calc(100% - 18px) 100%, 0 100%);
+  --cut-block: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
+
+  --speed: 0.4s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--black);
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  background: var(--black);
+  color: var(--paper);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+@supports (overflow: clip) {
+  body {
+    overflow-x: clip;
+  }
+}
+
+::selection {
+  background: var(--red);
+  color: var(--white);
+}
+
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: var(--red);
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* ---------------------------------------------------------
+   Navigation
+   --------------------------------------------------------- */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 20px;
+  padding: 12px clamp(16px, 5vw, 64px);
+  background: rgba(11, 11, 12, 0.92);
+  border-bottom: 2px solid var(--red);
+  backdrop-filter: blur(6px);
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+}
+
+.site-nav a {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.site-nav ul a {
+  position: relative;
+  padding-bottom: 3px;
+}
+
+/* Soulignement animé, déclenché au survol. */
+.site-nav ul a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--speed) ease;
+}
+
+.site-nav ul a:hover::after,
+.site-nav ul a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.nav-back {
+  color: var(--red-bright);
+}
+
+.nav-back:hover {
+  color: var(--white);
+}
+
+/* ---------------------------------------------------------
+   Hero
+   --------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(56px, 11vw, 120px) clamp(16px, 5vw, 64px) clamp(48px, 8vw, 96px);
+  background: var(--black);
+  isolation: isolate;
+}
+
+.hero-deco {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.deco-slab {
+  position: absolute;
+  display: block;
+}
+
+.slab-a {
+  top: -14%;
+  right: -12%;
+  width: 62%;
+  height: 130%;
+  background: var(--red);
+  transform: rotate(14deg);
+  opacity: 0.92;
+}
+
+.slab-b {
+  bottom: -30%;
+  left: -8%;
+  width: 46%;
+  height: 90%;
+  background: var(--black-soft);
+  background-image: var(--stripes);
+  transform: rotate(-9deg);
+}
+
+.deco-halftone {
+  position: absolute;
+  top: 8%;
+  right: 6%;
+  width: min(280px, 45vw);
+  height: min(280px, 45vw);
+  color: var(--black);
+  background-image: var(--halftone);
+  background-size: 9px 9px;
+  opacity: 0.55;
+  transform: rotate(-6deg);
+}
+
+.deco-ghost {
+  position: absolute;
+  right: clamp(8px, 3vw, 40px);
+  bottom: 2%;
+  font-family: var(--display);
+  font-size: clamp(6rem, 22vw, 18rem);
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(242, 239, 233, 0.16);
+  transform: rotate(-8deg);
+}
+
+.hero-tag {
+  display: inline-block;
+  padding: 5px 26px 5px 14px;
+  background: var(--paper);
+  color: var(--black);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+  clip-path: var(--cut-title);
+}
+
+.hero-name {
+  margin-top: 18px;
+  font-family: var(--display);
+  font-size: clamp(3.2rem, 15vw, 10rem);
+  line-height: 0.86;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.name-line {
+  display: block;
+  animation: slide-in 0.6s cubic-bezier(0.2, 0.9, 0.3, 1) both;
+}
+
+.name-line--alt {
+  margin-left: clamp(12px, 6vw, 90px);
+  color: var(--black);
+  -webkit-text-stroke: 2px var(--paper);
+  animation-delay: 0.12s;
+}
+
+@supports not (-webkit-text-stroke: 1px currentColor) {
+  .name-line--alt {
+    color: var(--paper);
+  }
+
+  .deco-ghost {
+    color: rgba(242, 239, 233, 0.14);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translate3d(-40px, 22px, 0) skewX(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-role {
+  margin-top: 22px;
+  font-size: clamp(1.05rem, 2.6vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero-note {
+  max-width: 38ch;
+  margin-top: 8px;
+  color: var(--paper);
+  font-size: 1.02rem;
+}
+
+.hero-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.hero-contact li {
+  padding: 6px 26px 6px 14px;
+  background: var(--paper);
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 700;
+  clip-path: var(--cut-title);
+}
+
+.hero-contact a {
+  text-decoration: none;
+}
+
+.hero-status {
+  margin-top: 16px;
+  color: var(--paper);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   Sections
+   --------------------------------------------------------- */
+
+.section {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 88px) clamp(16px, 5vw, 64px);
+}
+
+.section-title {
+  display: inline-block;
+  margin-bottom: 34px;
+  transform: rotate(-1.6deg);
+}
+
+.section-title span {
+  display: inline-block;
+  padding: 8px 30px 8px 18px;
+  background: var(--paper);
+  color: var(--black);
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 5vw, 2.6rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  clip-path: var(--cut-title);
+}
+
+.section--skills .section-title span,
+.section--path .section-title span {
+  background: var(--red);
+  color: var(--white);
+}
+
+/* À propos */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+  align-items: start;
+}
+
+.about-lead {
+  padding: 22px;
+  border-left: 6px solid var(--red);
+  font-size: clamp(1.15rem, 3vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.about-text {
+  color: #cfccc5;
+}
+
+/* Compétences */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.skill-block {
+  padding: 24px 22px 26px;
+  background: var(--paper);
+  color: var(--black);
+  clip-path: var(--cut-block);
+  transition: transform var(--speed) ease, background var(--speed) ease;
+}
+
+.skill-block:hover {
+  transform: translateY(-6px) rotate(-0.8deg);
+}
+
+.skill-block--accent {
+  background: var(--red);
+  color: var(--white);
+}
+
+.skill-heading {
+  margin-bottom: 14px;
+  font-family: var(--display);
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.tag-list li {
+  padding: 5px 24px 5px 12px;
+  background: var(--black);
+  color: var(--paper);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  clip-path: var(--cut-title);
+}
+
+.skill-block--accent .tag-list li {
+  background: var(--white);
+  color: var(--red-deep);
+}
+
+.tag-list--tight li {
+  padding: 4px 22px 4px 10px;
+  font-size: 11px;
+}
+
+/* Expériences */
+.work-lead {
+  position: relative;
+  padding: 24px 22px;
+  background: var(--red);
+  color: var(--white);
+  clip-path: var(--cut-block);
+}
+
+.work-org {
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 6vw, 3rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.work-role {
+  margin-top: 6px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.work-length {
+  margin-top: 2px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.project {
+  position: relative;
+  overflow: hidden;
+  padding: 26px 22px 28px;
+  background: var(--paper);
+  color: var(--black);
+  clip-path: var(--cut-block);
+}
+
+/* Trame décorative dans l'angle des projets. */
+.project::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 140px;
+  height: 140px;
+  color: var(--black);
+  background-image: var(--halftone);
+  background-size: 8px 8px;
+  opacity: 0.35;
+  transform: rotate(12deg);
+  pointer-events: none;
+}
+
+.project--two {
+  background: var(--black-soft);
+  color: var(--paper);
+  border: 2px solid var(--paper);
+}
+
+.project--two::before {
+  color: var(--red);
+  opacity: 0.6;
+}
+
+.project-index {
+  font-family: var(--display);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--red-deep);
+}
+
+.project--two .project-index {
+  color: var(--red-bright);
+}
+
+.project-name {
+  margin-top: 4px;
+  font-family: var(--display);
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.project--two .project-name {
+  color: var(--red-bright);
+}
+
+.project-kind {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-text {
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+.project .tag-list {
+  margin-top: 16px;
+}
+
+.project--two .tag-list li {
+  background: var(--red);
+  color: var(--white);
+}
+
+.work-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.work-list li {
+  padding: 18px 18px 20px;
+  border-left: 5px solid var(--red);
+  background: var(--black-soft);
+  font-size: 0.93rem;
+  color: #cfccc5;
+}
+
+.work-list h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.work-meta {
+  margin: 2px 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red-bright);
+}
+
+/* Parcours — timeline en diagonale */
+.timeline {
+  display: grid;
+  gap: 18px;
+}
+
+.step {
+  position: relative;
+  padding: 24px 22px 26px 84px;
+  background: var(--paper);
+  color: var(--black);
+  clip-path: var(--cut-block);
+}
+
+.step:nth-child(2) {
+  margin-left: clamp(0px, 6vw, 70px);
+  background: var(--black-soft);
+  color: var(--paper);
+  border-left: 5px solid var(--red);
+}
+
+.step:nth-child(3) {
+  margin-left: clamp(0px, 12vw, 140px);
+}
+
+.step-num {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  font-family: var(--display);
+  font-size: 3.4rem;
+  line-height: 1;
+  color: var(--red);
+  opacity: 0.85;
+}
+
+.step-year {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red-deep);
+}
+
+.step:nth-child(2) .step-year {
+  color: var(--red-bright);
+}
+
+.step-title {
+  margin-top: 2px;
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.step-text {
+  margin-top: 4px;
+  font-size: 0.95rem;
+}
+
+/* Langues */
+.lang-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.lang-list li {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px;
+  border: 2px solid var(--paper);
+  clip-path: var(--cut-block);
+}
+
+.lang-list strong {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
+.lang-list span {
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+
+/* ---------------------------------------------------------
+   Pied de page
+   --------------------------------------------------------- */
+
+.site-footer {
+  padding: clamp(36px, 6vw, 64px) clamp(16px, 5vw, 64px);
+  background: var(--red);
+  color: var(--white);
+}
+
+.footer-name {
+  font-family: var(--display);
+  font-size: clamp(2rem, 9vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 26px;
+  margin-top: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-links a {
+  text-decoration: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.footer-links a:hover {
+  border-bottom-color: var(--white);
+}
+
+/* ---------------------------------------------------------
+   Apparition au scroll (activée seulement si JS est présent)
+   --------------------------------------------------------- */
+
+.js .reveal {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  transition: opacity var(--speed) ease-out, transform var(--speed) cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------------------------------------------------------
+   Responsive — on réduit les rotations et les décalages
+   --------------------------------------------------------- */
+
+@media (max-width: 700px) {
+  .section-title {
+    transform: none;
+  }
+
+  .hero-tag {
+    transform: none;
+  }
+
+  .deco-ghost {
+    font-size: 8rem;
+    transform: none;
+    opacity: 0.6;
+  }
+
+  .step {
+    padding: 62px 18px 22px;
+  }
+
+  .step-num {
+    font-size: 2.6rem;
+  }
+
+  .step:nth-child(2),
+  .step:nth-child(3) {
+    margin-left: 0;
+  }
+
+  .name-line--alt {
+    margin-left: 0;
+  }
+
+  .skill-block:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------
+   Impression — version condensée qui conserve l'identité
+   noir / blanc / rouge, sur fond blanc pour rester lisible.
+   Nécessite « Graphiques d'arrière-plan » côté navigateur
+   pour les aplats ; sans cette option la page reste correcte.
+   --------------------------------------------------------- */
+
+@page {
+  size: A4;
+  margin: 13mm;
+}
+
+@media print {
+  .site-nav,
+  .hero-deco,
+  .skip-link,
+  .project::before,
+  .step-num,
+  .project-index,
+  .footer-back {
+    display: none !important;
+  }
+
+  /* Sans cette regle, les sections non encore revelees par
+     l'IntersectionObserver s'impriment vides. */
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  html,
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+
+  /* Les aplats rouges et noirs conservés doivent être imprimés. */
+  .section-title span,
+  .work-lead,
+  .tag-list li {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .hero,
+  .section,
+  .site-footer {
+    max-width: none;
+    margin: 0;
+    padding: 0 0 6mm;
+    background: #fff;
+    color: #000;
+    break-inside: auto;
+  }
+
+  /* En-tête */
+  .hero-tag {
+    padding: 0;
+    background: none;
+    color: var(--red-deep);
+    font-size: 8pt;
+    letter-spacing: 0.18em;
+    clip-path: none;
+    transform: none;
+  }
+
+  .hero-name {
+    margin-top: 2mm;
+    font-size: 30pt;
+    line-height: 0.92;
+    color: #000;
+  }
+
+  .name-line--alt {
+    margin-left: 0;
+    color: #000;
+    -webkit-text-stroke: 0;
+  }
+
+  .hero-role {
+    margin-top: 1mm;
+    padding-top: 1.5mm;
+    border-top: 2pt solid var(--red);
+    font-size: 11pt;
+  }
+
+  .hero-note {
+    max-width: none;
+    margin-top: 1mm;
+    font-size: 10pt;
+  }
+
+  .hero-contact {
+    gap: 0;
+    margin-top: 2mm;
+  }
+
+  .hero-contact li {
+    padding: 0;
+    background: none;
+    color: #000;
+    font-size: 9.5pt;
+    clip-path: none;
+  }
+
+  .hero-contact li:not(:last-child)::after {
+    content: "\00a0·\00a0";
+  }
+
+  .hero-status {
+    margin-top: 1mm;
+    color: #000;
+    font-size: 8.5pt;
+  }
+
+  /* Titres de section : bloc rouge conservé, sans rotation. */
+  .section-title {
+    margin-bottom: 3mm;
+    transform: none;
+  }
+
+  .section-title span {
+    padding: 2px 16px 2px 8px;
+    background: var(--red);
+    color: #fff;
+    font-size: 12pt;
+  }
+
+  /* Blocs de contenu : fond blanc, accents rouges. */
+  .about-lead {
+    padding: 0 0 0 4mm;
+    border-left: 2pt solid var(--red);
+    font-size: 11pt;
+  }
+
+  .about-text,
+  .work-list li,
+  .lang-list span {
+    color: #000;
+  }
+
+  .skill-grid,
+  .project-grid,
+  .work-list,
+  .lang-list {
+    gap: 4mm;
+  }
+
+  .skill-block,
+  .project,
+  .step,
+  .lang-list li {
+    padding: 0 0 0 4mm;
+    margin-left: 0;
+    background: none;
+    color: #000;
+    border: 0;
+    border-left: 1.5pt solid #000;
+    clip-path: none;
+    transform: none;
+    break-inside: avoid;
+  }
+
+  .project--two,
+  .step:nth-child(2) {
+    border-left-color: var(--red);
+  }
+
+  .skill-heading,
+  .project-name,
+  .step-title,
+  .work-org {
+    font-size: 12pt;
+    line-height: 1.1;
+    color: #000;
+  }
+
+  .project--two .project-name,
+  .step:nth-child(2) .step-year {
+    color: var(--red-deep);
+  }
+
+  .project-index,
+  .step-year,
+  .work-meta {
+    color: var(--red-deep);
+  }
+
+  /* Étiquettes : contour plutôt qu'aplat, pour rester lisibles. */
+  .tag-list {
+    gap: 1mm 2mm;
+  }
+
+  .tag-list li,
+  .tag-list--tight li {
+    padding: 0.5mm 2mm;
+    background: none;
+    color: #000;
+    border: 0.75pt solid #000;
+    font-size: 7.5pt;
+    clip-path: none;
+  }
+
+  .skill-block--accent .tag-list li,
+  .project--two .tag-list li {
+    color: var(--red-deep);
+    border-color: var(--red);
+  }
+
+  /* La Plateforme : bandeau rouge conservé, c'est le bloc principal. */
+  .work-lead {
+    padding: 3mm 4mm;
+    background: var(--red);
+    color: #fff;
+    clip-path: none;
+    break-inside: avoid;
+  }
+
+  .work-lead .work-org {
+    font-size: 15pt;
+    color: #fff;
+  }
+
+  .work-lead .work-role,
+  .work-lead .work-length {
+    color: #fff;
+    font-size: 9pt;
+  }
+
+  .work-list li {
+    padding-left: 4mm;
+    border-left: 1.5pt solid var(--red);
+    font-size: 9.5pt;
+  }
+
+  .work-list h3 {
+    color: #000;
+    font-size: 10.5pt;
+  }
+
+  .step-text,
+  .project-text {
+    font-size: 9.5pt;
+  }
+
+  /* Pied de page réduit à une ligne de contact. */
+  .site-footer {
+    padding-top: 4mm;
+    border-top: 2pt solid var(--red);
+  }
+
+  .footer-name {
+    font-size: 13pt;
+    color: #000;
+  }
+
+  .footer-links {
+    margin-top: 1mm;
+    font-size: 9pt;
+  }
+
+  .footer-links a {
+    border-bottom: 0;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  section,
+  .project,
+  .step,
+  .skill-block {
+    break-inside: avoid;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+}
